@@ -3,9 +3,9 @@ FROM python:3.10-slim-bookworm
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (minimal)
+# Install system dependencies (OpenCV needs libGL and libglib)
 RUN apt-get update && \
-    apt-get install -y build-essential && \
+    apt-get install -y build-essential libgl1 libglib2.0-0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
